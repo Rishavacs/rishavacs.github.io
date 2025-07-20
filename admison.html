@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admission Details - Sharda Gyan Niketan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #000;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .admission-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .admission-text {
+      flex: 1;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: #27548A;
+    }
+
+    .admission-desc {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .admission-desc ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    .admission-desc li {
+      margin-bottom: 10px;
+    }
+
+    .admission-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .admission-image img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 12px;
+    }
+
+    .cbse {
+      text-align: center;
+      padding: 40px 20px;
+      background: #f8f9fb;
+      color: #000;
+    }
+
+    .cbse h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .admission-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .admission-image img {
+        max-width: 100%;
+        margin-top: 20px;
+      }
+
+      .admission-desc {
+        max-width: 100%;
+      }
+    }
+    .navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+  }
+
+
+  /* Apple Glassmorphism Navbar */
+  .navbar {
+    height: 78px;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+admission-process {
+  padding: 60px 20px;
+  background: #f8f9fb;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+.admission-process .title {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+.timeline-step {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.timeline-step:hover {
+  transform: translateY(-4px);
+}
+.timeline-step .icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+.timeline-step .content {
+  text-align: left;
+}
+.timeline-step .content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+.timeline-step .content p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+.timeline-step .step-no {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgba(0,0,0,0.15);
+}
+
+/* Colors */
+.timeline-step.yellow .icon {
+  background: #FFD700;
+}
+.timeline-step.orange .icon {
+  background: #FFA500;
+}
+.timeline-step.red .icon {
+  background: #FF6347;
+}
+.timeline-step.teal .icon {
+  background: #20B2AA;
+}
+.timeline-step.green .icon {
+  background: #32CD32;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline-step {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .timeline-step .icon {
+    margin-bottom: 10px;
+  }
+  .timeline-step .step-no {
+    top: auto;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+  .logo img {
+    height: 45px;
+    margin-right: 10px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .dot-button {
+    font-size: 32px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+
+  .dot-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+
+  .menu-box {
+    position: absolute;
+    top: 78px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    width: 180px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.4s ease;
+  }
+
+  .menu-box a {
+    color: black;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    font-size: 16px;
+  }
+
+  .menu-box a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-toggle:checked + label + .menu-box {
+    display: flex;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .logo span {
+      font-size: 18px;
+    }
+
+    .menu-box {
+      width: 160px;
+      right: 20px;
+    }
+  }
+
+
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<!-- Glass Blur Apple-style NAVBAR -->
+<div class="navbar">
+  <!-- Left: Logo -->
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" />
+    <span>Sharda Gyan Niketan</span>
+  </div>
+
+  <!-- Right: 3-dot dropdown -->
+  <div class="apple-menu-container">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="dot-button">&#9776;</label></label>
+
+    <div class="menu-box">
+     <a href="index.html">Home</a>
+    <a href="index2.html">About Us</a>
+    <a href="news.html">News & Events</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="result.html" class="link-btn">Login</a>
+    </div>
+  </div>
+</div>
+  <div class="container">
+    <h1 data-aos="fade-up">Admission Details</h1>
+    <!DOCTYPE html>
+
+  <section class="admission-process" id="admission">
+  <h2 class="title" data-aos="fade-up">🎓 Admission Journey</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-step yellow" data-aos="fade-right">
+      <div class="icon"><i class="fas fa-user-plus"></i></div>
+      <div class="content">
+        <h3>Registration</h3>
+        <p>Start by registering your profile for the academic session.</p>
+        <span class="step-no">01</span>
+      </div>
+    </div>
+
+    <div class="timeline-step orange" data-aos="fade-left">
+      <div class="icon"><i class="fas fa-file-alt"></i></div>
+      <div class="content">
+        <h3>Application For Admission</h3>
+        <p>Fill out your application form with the required details.</p>
+        <span class="step-no">02</span>
+      </div>
+    </div>
+
+    <div class="timeline-step red" data-aos="fade-right">
+      <div class="icon"><i class="fas fa-upload"></i></div>
+      <div class="content">
+        <h3>Upload Documents</h3>
+        <p>Submit scanned copies of your academic documents online.</p>
+        <span class="step-no">03</span>
+      </div>
+    </div>
+
+    <div class="timeline-step teal" data-aos="fade-left">
+      <div class="icon"><i class="fas fa-list-check"></i></div>
+      <div class="content">
+        <h3>Status Checking in Merit List</h3>
+        <p>Track your name in the published merit list online.</p>
+        <span class="step-no">04</span>
+      </div>
+    </div>
+
+    <div class="timeline-step green" data-aos="fade-right">
+      <div class="icon"><i class="fas fa-credit-card"></i></div>
+      <div class="content">
+        <h3>Online Payment</h3>
+        <p>Complete the admission process by paying online fees.</p>
+        <span class="step-no">05</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">Eligibility Criteria</div>
+        <div class="admission-desc">
+          <ul>
+            <li>Nursery to Grade 12 admissions open (Day & Residential)</li>
+            <li>Minimum age: 3+ years (Nursery)</li>
+            <li>Previous academic records required</li>
+            <li>Entrance test for Grade 3 and above</li>
+          </ul>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-1.jpg" alt="Eligibility">
+      </div>
+    </div>
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">Admission Process</div>
+        <div class="admission-desc">
+          <ul>
+            <li>Step 1: Online/Offline Registration</li>
+            <li>Step 2: Document Verification</li>
+            <li>Step 3: Entrance Test / Interview</li>
+            <li>Step 4: Confirmation & Fee Payment</li>
+          </ul>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-2.jpg" alt="Admission Process">
+      </div>
+    </div>
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">Documents Required</div>
+        <div class="admission-desc">
+          <ul>
+            <li>Birth Certificate</li>
+            <li>Aadhar of student & parents</li>
+            <li>2 Passport photos</li>
+            <li>Report Card, TC (if any)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-3.jpg" alt="Documents Required">
+      </div>
+    </div>
+  
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">Fee Structure</div>
+        <div class="admission-desc">
+          <ul>
+            <li>Application Fee: ₹500</li>
+            <li>Admission Fee: ₹5,000</li>
+            <li>Annual: ₹30k – ₹60k (Day), ₹80k – ₹1.2L (Hostel)</li>
+            <li>EMI options available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-4.jpg" alt="Fee Structure">
+      </div>
+    </div>
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">Our Promises</div>
+        <div class="admission-desc">
+          <ul>
+            <li>No donation policy</li>
+            <li>Transparent admissions</li>
+            <li>Child-first & safe environment</li>
+            <li>Frequent PTMs & feedback</li>
+          </ul>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-5.jpg" alt="Our Promises">
+      </div>
+    </div>
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">School Environment</div>
+        <div class="admission-desc">
+          <ul>
+            <li>Smart classrooms & labs</li>
+            <li>Sports, music, art, coding</li>
+            <li>Nutritious meals (Hostel)</li>
+            <li>Mentors & Career Support</li>
+          </ul>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-6.jpg" alt="School Environment">
+      </div>
+    </div>
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">Scholarships</div>
+        <div class="admission-desc">
+          <ul>
+            <li>Merit-based for Class 6–12</li>
+            <li>Special quota for girl students</li>
+            <li>Financial aid for underprivileged</li>
+            <li>Sports & talent scholarships</li>
+          </ul>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-7.jpg" alt="Scholarships">
+      </div>
+    </div>
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">Parental Involvement</div>
+        <div class="admission-desc">
+          <ul>
+            <li>Monthly parent meetings</li>
+            <li>Feedback-based development</li>
+            <li>SMS & portal updates</li>
+            <li>Open communication</li>
+          </ul>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-8.jpg" alt="Parental Involvement">
+      </div>
+    </div>
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">Hostel Facilities</div>
+        <div class="admission-desc">
+          <ul>
+            <li>Airy dormitories with beds & storage</li>
+            <li>24x7 warden supervision</li>
+            <li>Healthy meals & recreation hours</li>
+            <li>Study hours & digital detox</li>
+          </ul>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-9.jpg" alt="Hostel Facilities">
+      </div>
+    </div>
+
+    <div class="admission-section" data-aos="fade-up">
+      <div class="admission-text">
+        <div class="section-title">Contact Admission Office</div>
+        <div class="admission-desc">
+          <p><strong>Email:</strong> admissions@shardagyan.com</p>
+          <p><strong>Phone:</strong> +91 98765 43210</p>
+          <p><strong>Timing:</strong> 9:00 AM – 4:00 PM (Mon–Sat)</p>
+        </div>
+      </div>
+      <div class="admission-image">
+        <img src="admission-10.jpg" alt="Contact Office">
+      </div>
+    </div>
+  </div>
+
+  <section class="cbse" data-aos="fade-up">
+    <h2>📘 Our school is proudly affiliated with CBSE, New Delhi.</h2>
+    <p>We follow all CBSE norms and NEP 2020 curriculum recommendations to deliver quality education.</p>
+  </section>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+  </script>
+</body>
+</html>

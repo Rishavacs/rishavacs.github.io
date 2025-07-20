@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Sharda Gyan Niketan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
+    }
+    .dark .invert-dark {
+      filter: invert(1) hue-rotate(180deg);
+    }
+    a:hover, button:hover {
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+  .navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+  }
+
+
+  /* Apple Glassmorphism Navbar */
+  .navbar {
+    height: 78px;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    height: 45px;
+    margin-right: 10px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .dot-button {
+    font-size: 32px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+
+  .dot-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+
+  .menu-box {
+    position: absolute;
+    top: 78px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    width: 180px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.4s ease;
+  }
+
+  .menu-box a {
+    color: black;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    font-size: 16px;
+  }
+
+  .menu-box a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-toggle:checked + label + .menu-box {
+    display: flex;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .logo span {
+      font-size: 18px;
+    }
+
+    .menu-box {
+      width: 160px;
+      right: 20px;
+    }
+  }
+  </style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-500">
+
+  <!-- Header -->
+  <!-- Navbar -->
+<div class="navbar">
+  <!-- Left: Logo -->
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" />
+    <span>Sharda Gyan Niketan</span>
+  </div>
+
+  <!-- Right: 3-dot dropdown -->
+  <div class="apple-menu-container">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="dot-button">&#9776;</label></label>
+
+    <div class="menu-box">
+     <a href="index.html">Home</a>
+    <a href="index2.html">About Us</a>
+    <a href="news.html">News & Events</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="result.html" class="link-btn">Login</a>
+    </div>
+  </div>
+</div>
+  <!-- Page Banner -->
+  <section class="text-center py-16 px-4 bg-gradient-to-r from-blue-100 to-indigo-200 dark:from-gray-800 dark:to-gray-900 shadow-inner" data-aos="fade-down">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-5xl font-extrabold mb-4 tracking-tight text-indigo-700 dark:text-white">Contact Us</h2>
+      <p class="text-lg text-gray-700 dark:text-gray-300">We’re here to help you. Reach out anytime!</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 bg-white dark:bg-gray-900 transition duration-500">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+
+      <!-- Info -->
+      <div class="space-y-6" data-aos="fade-right">
+        <h3 class="text-3xl font-bold text-indigo-700 dark:text-indigo-300">Get in Touch</h3>
+        <p class="text-gray-600 dark:text-gray-400">We would love to hear from you. Drop us a message and we’ll get back soon!</p>
+
+        <div class="space-y-5 text-base">
+          <div class="flex items-start space-x-4">
+            <span class="text-2xl">📍</span>
+            <div>
+              <h4 class="font-semibold">Address</h4>
+              <p class="text-gray-600 dark:text-gray-400">123 Sharda Street, Gyan Nagar, India</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <span class="text-2xl">📧</span>
+            <div>
+              <h4 class="font-semibold">Email</h4>
+              <p class="text-gray-600 dark:text-gray-400">info@shardagyan.edu.in</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <span class="text-2xl">📞</span>
+            <div>
+              <h4 class="font-semibold">Phone</h4>
+              <p class="text-gray-600 dark:text-gray-400">+91 98765 43210</p>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/+919473161575" target="_blank"
+    class="fixed top-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 dark:shadow-green-900">
+    <title="Chat with us on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.77 11.77 0 0 0 12 0C5.37 0 0 5.37 0 12a11.86 11.86 0 0 0 1.6 5.91L0 24l6.26-1.64A11.87 11.87 0 0 0 12 24c6.63 0 12-5.37 12-12a11.77 11.77 0 0 0-3.48-8.52Z"/>
+    </svg>
+  </a>
+      <!-- Form -->
+      <form action="https://formspree.io/f/myzjvyko" method="POST"
+        class="bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-8 space-y-6 transition-colors duration-500" data-aos="fade-left">
+        
+        <div>
+          <label class="block font-medium mb-1">Your Name</label>
+          <input type="text" name="name" required placeholder="Full Name"
+            class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Email</label>
+          <input type="email" name="email" required placeholder="Email Address"
+            class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1">Message</label>
+          <textarea name="message" rows="5" required placeholder="Your message..."
+            class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+        </div>
+
+        <input type="hidden" name="_redirect" value="thank-you.html" />
+
+        <button type="submit"
+          class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition duration-300 shadow-md">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- Map -->
+  <section class="px-6 pb-20" data-aos="zoom-in">
+    <div class="max-w-7xl mx-auto">
+      <iframe class="w-full h-80 rounded-2xl shadow-lg invert-dark"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.329211589882!2d85.3043650498543!3d25.755330714903817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed67c80b747059%3A0x8a65eec89b16ac9f!2sSharda%20Gyan%20Niketan!5e0!3m2!1sen!2sin!4v1751450154613!5m2!1sen!2sin"
+        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6 dark:bg-black transition">
+    © 2025 Sharda Gyan Niketan. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    AOS.init();
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+    });
+    document.getElementById('toggleDark').addEventListener('click', (event) => {
+      document.documentElement.classList.toggle('dark');
+      event.target.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>

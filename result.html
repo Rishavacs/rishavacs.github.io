@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Result Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --bg: #f0f4f8;
+      --text: #1f2937;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      width: 80px;
+      margin: 0 auto 20px;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h2 {
+      color: var(--text);
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 16px 14px 14px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: transparent;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: 15px;
+      color: #888;
+      pointer-events: none;
+      transition: 0.3s ease;
+      background: white;
+      padding: 0 5px;
+    }
+
+    .input-group input:focus + label,
+    .input-group input:not(:placeholder-shown) + label {
+      top: -9px;
+      font-size: 12px;
+      color: var(--primary);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+    }
+
+    #loginError {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    @media(max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+        border-radius: 15px;
+      }
+
+      iframe {
+        height: 400px;
+      }
+    }
+    #loadingSpinner {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh; width: 100vw;
+  background: rgba(255,255,255,0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 0.4s ease;
+}
+
+.spinner-container p {
+  font-size: 16px;
+  margin-top: 10px;
+  color: var(--text);
+  animation: fadeIn 1s ease;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ccc;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.link-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #3b82f6;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.2);
+  margin-right: 20px;
+}
+
+.link-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+@media screen and (max-width: 600px) {
+  .link-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- 3D/Animated Logo -->
+  <div class="container" id="loginForm">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="logo" alt="3D Logo" />
+    <h2>Login to View Result</h2>
+
+    <div class="input-group">
+      <input type="email" id="email" required placeholder=" " />
+      <label for="email">Email Address</label>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" required placeholder=" " />
+      <label for="password">Password</label>
+    </div>
+
+    <button onclick="login()">Login</button>
+    <div id="loginError"></div>
+  </div>
+
+  <!-- PDF Result View -->
+  <div class="container" id="resultSection" style="display: none;">
+    <h2>📄 Your Result</h2>
+    <iframe id="pdfViewer"></iframe>
+  </div>
+  <!-- Loading Spinner -->
+<div id="loadingSpinner" style="display: none;">
+  <div class="spinner-container">
+    <div class="spinner"></div>
+    <p>Loading your result...</p>
+  </div>
+</div>
+
+  <!-- Firebase Auth Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAH0xPz_CcrB3g8MZiSJLRYw-gYbMrIKBs",
+      authDomain: "student-portal-2882c.firebaseapp.com",
+      projectId: "student-portal-2882c",
+      storageBucket: "student-portal-2882c.firebasestorage.app",
+      messagingSenderId: "931449725487",
+      appId: "1:931449725487:web:87a611729c35683849dcda"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const loginForm = document.getElementById("loginForm");
+    const resultSection = document.getElementById("resultSection");
+    const pdfViewer = document.getElementById("pdfViewer");
+    const loginError = document.getElementById("loginError");
+
+    window.login = async function () {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  try {
+    document.getElementById("loadingSpinner").style.display = "flex";
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const uid = userCredential.user.uid;
+
+    const docRef = doc(db, "users", uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists() && docSnap.data().pdfUrl) {
+      setTimeout(() => {
+        document.getElementById("loadingSpinner").style.display = "none";
+        loginForm.style.display = "none";
+        resultSection.style.display = "block";
+        pdfViewer.src = docSnap.data().pdfUrl;
+      }, 1000); // for smooth transition
+    } else {
+      document.getElementById("loadingSpinner").style.display = "none";
+      loginError.textContent = "❌ Result not found for this account.";
+    }
+  } catch (error) {
+    document.getElementById("loadingSpinner").style.display = "none";
+    loginError.textContent = `❌ ${error.message}`;
+  }
+};
+  </script>
+
+</body>
+</html>

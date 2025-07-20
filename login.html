@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sharda Gyan Niketan - Auth</title>
+  <link href="login.css" rel="stylesheet" />
+<style type="text/css" media="all">
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0ff0f;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      background: #fff;
+      padding: 35px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.6s ease;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 14px 40px 14px 12px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: transparent;
+    }
+    .form-group label {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      background: white;
+      padding: 0 6px;
+      color: #777;
+      transition: 0.3s ease;
+      pointer-events: none;
+    }
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label {
+      top: -10px;
+      left: 10px;
+      font-size: 13px;
+      color: #2575fc;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 16px;
+      color: #888;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 15px;
+      
+    }
+    .row button {
+      flex: 1;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 12px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: navy;
+      transition: 0.3s;
+      
+    }
+    .row button:hover {
+      background-color: #ddd;
+    }
+    .highlight {
+      background: linear-gradient(to right, #1a73e8, #1976d2);
+      color: white;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+    #googleLogin {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background-color: #db4437;
+      color: white;
+      font-weight: bold;
+      margin: 5px 0;
+      border: none;
+      border-radius: 12px;
+      padding: 10px;
+      cursor: pointer;
+      text-align: center;
+      margin-left:95px;
+    }
+    #googleLogin:hover {
+      background-color: #c23321;
+    }
+    #resendBtn {
+      display: none;
+      background-color: orange;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    #loader {
+      display: none;
+      margin: 15px auto;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #007BFF;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      animation: spin 1s linear infinite;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #2A1390;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <div class="form-group">
+      <input type="email" id="email" placeholder=" " required />
+      <label>Email</label>
+    </div>
+    <div class="form-group">
+      <input type="password" id="password" placeholder=" " required />
+      <label>Password</label>
+      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+    </div>
+    <div class="row">
+      <button onclick="sendReset()">Forgot Password</button>
+      <button onclick="signup()" style="width: 100%; padding: 12px; font-weight: bold; border-radius: 12px;">SIGN UP</button>
+    </div>
+    <div class="row">
+      <button onclick="login()" class="highlight">LOGIN</button>
+    </div>
+    <button id="googleLogin" onclick="googleLogin()">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20" />
+      Login with Google
+    </button>
+    <button id="resendBtn" onclick="resendVerification()">Resend Verification Email</button>
+    <div id="loader"></div>
+    <p id="message"></p>
+   <p> <a href="info.html">Term&Condition</a>
+  </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import {
+    GoogleAuthProvider,
+    FacebookAuthProvider,
+    TwitterAuthProvider,
+    signInWithPopup,
+    signInWithRedirect,
+    getRedirectResult,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    sendPasswordResetEmail,
+    sendEmailVerification,
+    getAuth
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBXU1sJS_u8HJmewmPLj90GLHjWWt1Z9Mw",
+    authDomain: "sharda-64eef.firebaseapp.com",
+    projectId: "sharda-64eef",
+    storageBucket: "sharda-64eef.firebasestorage.app",
+    messagingSenderId: "91589080715",
+    appId: "1:91589080715:web:fa401a201d6f6b508e868e",
+    measurementId: "G-LH0G5JXZYG"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+  const twitterProvider = new TwitterAuthProvider();
+
+  window.togglePassword = () => {
+    const pwd = document.getElementById("password");
+    pwd.type = pwd.type === "password" ? "text" : "password";
+  };
+
+  const msg = (text, type = 'green') => {
+    const el = document.getElementById("message");
+    el.innerText = text;
+    el.style.color = type === 'green' ? "green" : "red";
+    document.getElementById("loader").style.display = "none";
+  };
+
+  const showLoader = () => {
+    document.getElementById("loader").style.display = "block";
+    document.getElementById("message").innerText = "";
+  };
+
+  window.signup = async () => {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    showLoader();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await sendEmailVerification(userCredential.user);
+      msg("✅ Signup successful! Please verify your email.", "green");
+    } catch (error) {
+      msg("❌ " + error.message, "red");
+    }
+  };
+
+  window.login = async () => {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    showLoader();
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      if (userCredential.user.emailVerified) {
+        msg("✅ Login successful! Redirecting...", "green");
+        setTimeout(() => window.location.href = "index.html", 1500);
+      } else {
+        msg("⚠️ Please verify your email before logging in.", "red");
+        document.getElementById("resendBtn").style.display = "block";
+      }
+    } catch (error) {
+      msg("❌ Incorrect email or password.", "red");
+    }
+  };
+
+  window.googleLogin = async () => {
+    showLoader();
+    try {
+      // Use signInWithRedirect for better compatibility
+      await signInWithRedirect(auth, googleProvider);
+    } catch (error) {
+      console.error("Google Login Error:", error);
+      msg("❌ " + error.message, "red");
+    }
+  };
+
+  // This handles redirect result when user comes back from Google login
+  getRedirectResult(auth)
+    .then((result) => {
+      if (result && result.user) {
+        msg("✅ Google Login successful!", "green");
+        setTimeout(() => window.location.href = "home.html", 1500);
+      }
+    })
+    .catch((error) => {
+      console.error("Redirect Login Error:", error);
+      msg("❌ " + error.message, "red");
+    });
+
+  window.facebookLogin = async () => {
+    showLoader();
+    try {
+      await signInWithPopup(auth, facebookProvider);
+      msg("✅ Facebook Login successful!", "green");
+      setTimeout(() => window.location.href = "home.html", 1500);
+    } catch (error) {
+      msg("❌ " + error.message, "red");
+    }
+  };
+
+  window.twitterLogin = async () => {
+    showLoader();
+    try {
+      await signInWithPopup(auth, twitterProvider);
+      msg("✅ Twitter Login successful!", "green");
+      setTimeout(() => window.location.href = "home.html", 1500);
+    } catch (error) {
+      msg("❌ " + error.message, "red");
+    }
+  };
+
+  window.sendReset = async () => {
+    const email = document.getElementById("email").value;
+    showLoader();
+    try {
+      await sendPasswordResetEmail(auth, email);
+      msg("🔑 Password reset link sent to your email.", "green");
+    } catch (error) {
+      msg("❌ " + error.message, "red");
+    }
+  };
+
+  window.resendVerification = async () => {
+    showLoader();
+    try {
+      if (auth.currentUser) {
+        await sendEmailVerification(auth.currentUser);
+        msg("📧 Verification email sent again! Check your inbox.", "green");
+      } else {
+        msg("❌ Please login first.", "red");
+      }
+    } catch (error) {
+      msg("❌ " + error.message, "red");
+    }
+  };
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>School Website</title>
+  <!-- Font Awesome CDN (Put this in your <head>) -->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />-->
+
+
+  <!-- Font Awesome (social icons) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Include Lottie Player in <head> --><!-- Google Font: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<!-- AOS Animation CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!--leader--!>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style type="text/css" media="all">
+.reviews-section {
+  padding: 60px 5%;
+  text-align: center;
+  background: whitesmoke;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.carousel {
+  overflow: hidden;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.carousel:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.review-card {
+  flex: 0 0 350px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.user-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.stars i {
+  color: #fbbf24;
+  font-size: 14px;
+}
+
+.review-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* ✅ Responsive: Same behavior on mobile */
+@media (max-width: 768px) {
+  .review-card {
+    flex: 0 0 85%;
+  }
+
+  .carousel-track {
+    gap: 20px;
+  }
+}
+
+
+  .team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .team-member {
+    position: relative;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+  }
+
+  .team-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .team-member img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .designation {
+    background: #fff
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 1rem;
+    border-top: 1px solid #ddd;
+    text-transform: capitalize;
+  }
+
+  .hidden-members {
+    display: none;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .read-more-btn {
+    margin-top: 40px;
+    background: #ffcc00;
+    border: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .read-more-btn:hover {
+    background: #e6b800;
+    transform: scale(1.05);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+.accordion-btn {
+  background: #fff;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  position: relative;
+}
+
+.accordion-btn img {
+  margin-right: 12px;
+}
+
+.accordion-content {
+  max-height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  background: #fafafa;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.accordion-content p {
+  margin: 15px 0;
+  color: #444;
+}
+
+.accordion-item.active .accordion-content {
+  padding: 15px 20px;
+  max-height: 500px;
+}
+
+/* Arrow */
+.accordion-btn .arrow {
+  width: 12px;
+  height: 12px;
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  margin-left: 15px;
+}
+
+.accordion-item.active .arrow {
+  transform: rotate(-135deg); /* points up when open */
+}
+
+.success-msg {
+    margin-top: 20px;
+    background: #e6ffed;
+    border: 1px solid #b0f2c2;
+    color: #007a2f;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 500;
+    animation: fadeUp 0.5s ease forwards;
+  }
+  /* Section Layout */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+/* Form Card Styling */
+.contact-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-width: 600px;
+  width: 100%;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* Title */
+.contact-card h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.contact-card p {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Input Group Styling */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+/* Inputs & Textarea */
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 14px 14px 14px 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+  font-size: 1rem;
+  background: #fafafa;
+}
+
+/* Prevent textarea resize on desktop */
+.input-group textarea {
+  resize: none;
+}
+
+/* Floating Labels */
+.input-group label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  color: #777;
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  background: #fff;
+  padding: 0 5px;
+}
+
+/* Floating Effect when focused or valid */
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label {
+  top: -10px;
+  left: 12px;
+  font-size: 0.75rem;
+  color: #0077ff;
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #0077ff;
+  color: #fff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #005fcc;
+  transform: scale(1.03);
+}
+
+/* Success Message */
+.success-msg {
+  margin-top: 20px;
+  background: #e6ffed;
+  border: 1px solid #b0f2c2;
+  color: #007a2f;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+/* Entry Animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 30px 20px;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}
+.stats-wide-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.stat-card.wide {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  background: #1b1b1b;
+  border-radius: 20px;
+  padding: 50px 30px;
+  text-align: center;
+  transition: transform 0.5s ease, box-shadow 0.4s ease;
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.stat-card.wide:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.stat-card .icon {
+  margin-bottom: 15px;
+}
+
+.stat-card .icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.stat-card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+}
+
+.stat-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #f4c900;
+  color: #111;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  letter-spacing: 0.5px;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.feedback-section-uni57 {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+.feedback-form-box-uni57 {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-form-box-uni57 h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.feedback-form-uni57 input,
+.feedback-form-uni57 textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  transition: border 0.3s ease;
+}
+
+.feedback-form-uni57 input:focus,
+.feedback-form-uni57 textarea:focus {
+  border-color: #fff;
+  outline: none;
+}
+
+.feedback-form-uni57 button {
+  width: 100%;
+  padding: 12px;
+  background: #ffffff20;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.feedback-form-uni57 button:hover {
+  background: #fff;
+  color: #000;
+}
+.link-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  background: #3b82f6;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.2);
+  margin-right: 5px;
+}
+
+.link-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+@media screen and (max-width: 600px) {
+  .link-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+
+  /* Apple Glassmorphism Navbar */
+  .navbar {
+    height: 58px;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    height: 45px;
+    margin-right: 10px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .dot-button {
+    font-size: 32px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+
+  .dot-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+
+  .menu-box {
+    position: absolute;
+    top: 78px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    width: 180px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.4s ease;
+  }
+
+  .menu-box a {
+    color: black;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    font-size: 16px;
+  }
+
+  .menu-box a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-toggle:checked + label + .menu-box {
+    display: flex;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .logo span {
+      font-size: 18px;
+    }
+
+    .menu-box {
+      width: 160px;
+      right: 20px;
+    }
+  }
+
+  
+  </style>
+</head>
+<body>
+<!-- Glass Blur Apple-style NAVBAR -->
+<div class="navbar">
+  <!-- Left: Logo -->
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo" />
+    <span>Sharda Gyan Niketan</span>
+  </div>
+
+  <!-- Right: 3-dot dropdown -->
+  <div class="apple-menu-container">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="dot-button" style="color:black">&#9776;</label>
+
+    <div class="menu-box">
+      <a href="index.html">Home</a>
+    <a href="index2.html">About Us</a>
+    <a href="news.html">News & Events</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="result.html" class="link-btn">Login</a>
+
+    </div>
+  </div>
+</div>
+ <!-- <header class="navbar">
+  <div class="logo">
+    
+    <img src="logo.jpg" alt="School Logo" style="height: 50px; vertical-align: middle;">
+    SHARDA GYAN NIKETAN 
+    <p>Est.2006</p>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index2.html">About Us</a>
+    <a href="news.html">News & Events</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="result.html" class="link-btn">Login</a>
+  
+
+<div id="user-action" style="margin-left:auto;"></div>
+  </nav>
+</header>-->
+
+<section class="hero">
+  <div class="hero-interactive-bg">
+    <canvas id="interactive-bg"></canvas>
+  </div>  <div class="overlay">
+    <h1>Inspiring Excellence, <br /> Shaping Futures</h1>
+    <p class="typewriter">Empowering Students for Tomorrow</p>
+    <div class="btn-group">
+      <a href="#" class="btn primary">Explore School</a>
+      <a href="javascript:void(0)" onclick="openAdmission()" class="btn secondary">Apply Now</a>
+    </div>
+    <div class="scroll-indicator">⬇</div>
+  </div>
+</section><div class="section-divider"></div>
+
+
+<section class="about-section" id="about">
+  <div class="about-text">
+    <h2>About the School</h2>
+    <p>
+      Our mission is to foster a nurturing environment that empowers students to achieve academic excellence and become responsible global citizens.
+    </p>
+
+    <!-- Hidden content -->
+    <div id="moreAboutText" style="display: none; margin-top: 10px;">
+      <p>
+        At Sharda Gyan Niketan, we emphasize holistic development through innovative teaching, modern facilities, and a strong value system. Our curriculum blends academics with co-curricular activities to ensure every child thrives intellectually, emotionally, and socially.
+      </p>
+      <p>
+        We take pride in our dedicated faculty, safe campus, and inclusive environment. Join us in our journey to create lifelong learners and future leaders!
+      </p>
+    </div>
+
+    <a href="javascript:void(0)" class="learn-btn" onclick="toggleMoreText(this)">Learn More</a>
+  </div>
+
+  <div class="about-image">
+    <img src="school2.jpg" alt="School Students" />
+  </div>
+</section>
+
+<!-- Quick Links Section -->
+<section class="quick-links">
+  <a href="javascript:void(0)" class="card" onclick="openCalendar()">
+    <div class="icon beat">📅</div>
+    <p>Calendar</p>
+  </a>
+  <a href="curriculum.html" class="card">
+    <div class="icon beat">📘</div>
+    <p>Curriculum</p>
+  </a>
+  <a href="admison.html" class="card">
+    <div class="icon beat">📝</div>
+    <p>Admissions</p>
+  </a>
+  <a href="#alumni" class="card">
+    <div class="icon beat">🎓</div>
+    <p>Alumni</p>
+  </a>
+  <a href="service.html" class="card">
+    <div class="icon beat">⚡</div>
+    <p>Service</p>
+  </a>
+</section>
+<h2 style="margin-left: 20px;"> News&Events</h2>
+<div class="news-grid">
+  <!-- Already visible news -->
+  <div class="news-card">
+    <img src="IMG_20250713_125711_imresizer.jpg" alt="News 1">
+    <div class="news-info">
+      <h4>Upcoming Independece day</h4>
+      <p>Aug 15, 2025</p>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <img src="IMG_20250713_125506.jpg" alt="News 2">
+    <div class="news-info">
+      <h4>Upcoming sports day</h4>
+      <p>Nov 14, 2025</p>
+    </div>
+  
+  </div>
+  <a href="javascript:void(0)" class="see-top" id="showMoreNews">See-top &rarr;</a>
+
+  <!-- Hidden extra news -->
+  <div class="news-card extra-news" style="display: none;">
+    <img src="https://via.placeholder.com/100x100" alt="News 3">
+    <div class="news-info">
+      <h4>Inter-School Quiz Competition</h4>
+      <p>May 5, 2024</p>
+    </div>
+  </div>
+
+  <div class="news-card extra-news" style="display: none;">
+    <img src="https://via.placeholder.com/100x100" alt="News 4">
+    <div class="news-info">
+      <h4>Annual Sports Day Highlights</h4>
+      <p>Feb 10, 2024</p>
+    </div>
+  </div>
+</div>
+
+  <section class="gallery-testimonials">
+    <!-- Gallery Section -->
+    <div class="gallery-box">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <img src="music-class.jpg.jpg">
+        <img src="computer-lab.jpg" alt="Gallery Image 2">
+      </div>
+      <a href="gallery.html" class="view-more">View More</a>
+    </div>
+
+    <!-- Testimonials Section -->
+    
+    
+    <div class="testimonial-box">
+      <h2>Testimonials</h2>
+      <div class="testimonial-content">
+        <img src="tpur2.jpg" alt="Student" class="testimonial-img" />
+        <div class="testimonial-actions">
+          <a href="javascript:void(0)" class="btn visit" onclick="openVisitForm()">Schedule a Visit</a>
+          <a href="#" class="btn download">Download Prospectus</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+<!-- Calendar Popup -->
+<div id="calendarPopup">
+  <button class="calendar-close" onclick="closeCalendar()">X</button>
+  <h2 style="text-align:center;">📅 School Year Calendar</h2>
+
+  <!-- Google Calendar Embed -->
+  <div style="text-align:center; padding: 10px;">
+    <iframe 
+      src="https://calendar.google.com/calendar/embed?src=en.indian%23holiday%40group.v.calendar.google.com&ctz=Asia%2FKolkata" 
+      style="border: 0; width: 100%; height: 600px;" 
+      frameborder="0" 
+      scrolling="no">
+    </iframe>
+  </div>
+
+  <!-- Legend -->
+  <div style="margin-top:15px; font-size:14px; text-align:center;">
+    <strong>Legend:</strong>
+    <span style="color:#27ae60;">● National Holiday</span>
+    <span style="color:#2980b9;">● Festival (Blue)</span>
+    <span style="color:#e67e22;">● Religious Holiday</span>
+  </div>
+</div>
+<!-- Admission Form Overlay -->
+<div id="admissionOverlay" onclick="closeAdmission()"></div>
+
+<!-- Admission Form Popup -->
+<!-- Admission Form Popup -->
+<div id="admissionPopup">
+  <button class="calendar-close" onclick="closeAdmission()">X</button>
+  <h2 style="text-align:center; color:#004080; margin-bottom: 10px;">🎓 Admission Form</h2>
+
+  <form id="admissionForm" action="https://formspree.io/f/xkgbeejd" method="POST">
+    <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+      <input type="text" name="name" required placeholder="Full Name" />
+      <input type="email" name="email" required placeholder="Email" />
+      <input type="tel" name="phone" required placeholder="Phone Number" />
+      <input type="date" name="dob" required />
+      <select name="class" required>
+        <option value="">Select Class</option>
+        <option>Nursery</option>
+        <option>LKG</option>
+        <option>UKG</option>
+        <option>Class 1</option>
+        <option>Class 2</option>
+        <option>Class 3</option>
+        <option>... upto Class 12</option>
+      </select>
+      <input type="text" name="previous_school" placeholder="Previous School" />
+    </div>
+    <textarea name="address" rows="3" required placeholder="Full Address" style="margin-top:10px;"></textarea>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+<!-- Visit Form Overlay -->
+<div id="visitOverlay" onclick="closeVisitForm()"></div>
+
+<!-- Visit Form Popup -->
+<div id="visitPopup">
+  <button class="calendar-close" onclick="closeVisitForm()">X</button>
+  <h2 style="text-align:center; color:#004080; margin-bottom: 10px;">📍 Schedule a Visit</h2>
+
+  <form id="visitForm" action="https://formspree.io/f/your-form-id" method="POST">
+    <div style="display: grid; gap: 10px; grid-template-columns: 1fr 1fr;">
+      <input type="text" name="name" required placeholder="Full Name" />
+      <input type="email" name="email" required placeholder="Email" />
+      <input type="tel" name="phone" required placeholder="Phone Number" />
+      <input type="date" name="date" required />
+      <select name="time" required>
+        <option value="">Preferred Time</option>
+        <option>Morning (9AM - 12PM)</option>
+        <option>Afternoon (1PM - 3PM)</option>
+        <option>Evening (4PM - 6PM)</option>
+      </select>
+    </div>
+    <textarea name="message" rows="3" placeholder="Any specific request? (Optional)" style="margin-top:10px;"></textarea>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+
+<!-- 👇 Discipline Section Start -->
+<section style="font-family: 'Inter', sans-serif; background: #fff; padding: 60px 20px;">
+  <div style="max-width: 1100px; margin: auto; display: flex; flex-direction: column; gap: 60px;">
+
+    <!-- 🔹 Row 1: Image Left, Text Right -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
+      <img src="students.jpg"
+           alt="School Rules"
+           style="flex: 1 1 300px; max-width: 300px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s;"
+           onmouseover="this.style.transform='scale(1.05)'" 
+           onmouseout="this.style.transform='scale(1)'">
+
+      <div style="flex: 1 1 500px;">
+        <h2 style="font-size: 2rem; color: #111; margin-bottom: 10px;">Discipline Builds Character</h2>
+        <p style="font-size: 1.05rem; color: #444; line-height: 1.6;">
+          At <strong>Sharda Gyan Niketan</strong>, we believe discipline nurtures responsibility and self-control. 
+          Students are encouraged to follow routines, maintain decorum, and respect school values from a young age.
+        </p>
+      </div>
+    </div>
+
+    <!-- 🔹 Row 2: Text Left, Image Right -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; flex-direction: row-reverse;">
+      <img src="IMG_20250713_124914.jpg"
+           alt="Respect and Routine"
+           style="flex: 1 1 300px; max-width: 300px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s;"
+           onmouseover="this.style.transform='scale(1.05)'" 
+           onmouseout="this.style.transform='scale(1)'">
+
+      <div style="flex: 1 1 500px;">
+        <h2 style="font-size: 2rem; color: #111; margin-bottom: 10px;">Respecting Time & Authority</h2>
+        <p style="font-size: 1.05rem; color: #444; line-height: 1.6;">
+          Timeliness, obedience, and polite conduct are key parts of our school culture. Students are guided through 
+          positive reinforcement to respect teachers, peers, and school infrastructure.
+        </p>
+      </div>
+    </div>
+
+    <!-- 🔹 Row 3: Image Left, Text Right -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
+      <img src="xyz.jpg"
+           alt="School Decorum"
+           style="flex: 1 1 300px; max-width: 300px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.4s;"
+           onmouseover="this.style.transform='scale(1.05)'" 
+           onmouseout="this.style.transform='scale(1)'">
+
+      <div style="flex: 1 1 500px;">
+        <h2 style="font-size: 2rem; color: #111; margin-bottom: 10px;">Clean & Disciplined Campus</h2>
+        <p style="font-size: 1.05rem; color: #444; line-height: 1.6;">
+          Cleanliness, proper uniform, assembly lines, and rule-following are practiced every day. We aim to instill 
+          habits that prepare students for real-world discipline and success.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 👆 Discipline Section End -->
+
+
+
+<!-- 👇 Team Section Start -->
+<section id="team" style="font-family: 'Inter', sans-serif; background: #f8f8f8; padding: 80px 20px;">
+  <div style="max-width: 1200px; margin: auto; text-align: center;">
+    <h2 style="font-size: 2.5rem; font-weight: 700; color: #111;" data-aos="fade-down">Meet Our Team</h2>
+    <p style="font-size: 1.1rem; color: #666; margin-top: 10px;" data-aos="fade-up">
+      We develop an individual integrated solution for your school and select a unique set of services for it, combining them with a single strategy and goal.
+    </p>
+
+    <!-- Yellow line under text -->
+    <div style="width: 80px; height: 3px; background-color: #f4c900; margin: 25px auto 50px;" data-aos="zoom-in"></div>
+
+    <!-- 👥 Team Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;" data-aos="fade-up">
+      
+      <!-- Member 1 -->
+      <div>
+        <img src="IMG_20250703_180502.jpg"
+             alt="Principal"
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='scale(1.03)'"
+             onmouseout="this.style.transform='scale(1)'">
+        <p style="margin-top: 10px; font-weight: 600; font-size: 1rem; color: #222;">Principal</p>
+      </div>
+
+      <!-- Member 2 -->
+      <div>
+        <img src="music-class.jpg.jpg"
+             alt="Director"
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='scale(1.03)'"
+             onmouseout="this.style.transform='scale(1)'">
+        <p style="margin-top: 10px; font-weight: 600; font-size: 1rem; color: #222;">Director</p>
+      </div>
+
+      <!-- Member 3 -->
+      <div>
+        <img src="science-lab.jpg.jpg"
+             alt="Chairman"
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='scale(1.03)'"
+             onmouseout="this.style.transform='scale(1)'">
+        <p style="margin-top: 10px; font-weight: 600; font-size: 1rem; color: #222;">Chairman</p>
+      </div>
+
+      <!-- Member 4 -->
+      <div>
+        <img src="IMG_20250713_125506.jpg"
+             alt="Coordinator"
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='scale(1.03)'"
+             onmouseout="this.style.transform='scale(1)'">
+        <p style="margin-top: 10px; font-weight: 600; font-size: 1rem; color: #222;">Coordinator</p>
+      </div>
+
+      <!-- Member 5 -->
+      <div>
+        <img src="IMG_20250713_124914.jpg"
+             alt="Vice Principal"
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='scale(1.03)'"
+             onmouseout="this.style.transform='scale(1)'">
+        <p style="margin-top: 10px; font-weight: 600; font-size: 1rem; color: #222;">Vice Principal</p>
+      </div>
+
+      <!-- Member 6 -->
+      <div>
+        <img src="IMG_20250701_150832.jpg"
+             alt="Administrator"
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='scale(1.03)'"
+             onmouseout="this.style.transform='scale(1)'">
+        <p style="margin-top: 10px; font-weight: 600; font-size: 1rem; color: #222;">Administrator</p>
+      </div>
+    </div>
+
+    <!-- 🔘 Read More Button -->
+   <!-- <a href="#more-team"
+       style="display: inline-block; margin-top: 50px; padding: 14px 34px; background: linear-gradient(to right, #007aff, #0051ff); color: #fff; font-weight: 600; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;"
+       onmouseover="this.style.transform='scale(1.05)'"
+       onmouseout="this.style.transform='scale(1)'"
+       data-aos="zoom-in">
+       READ MORE
+    </a> -->
+  </div>
+</section>
+<!-- 👆 Team Section End -->
+<!--<section class="admission-process" id="admission">
+  <h2 class="title" data-aos="fade-up">🎓 Admission Journey</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-step yellow" data-aos="fade-right">
+      <div class="icon"><i class="fas fa-user-plus"></i></div>
+      <div class="content">
+        <h3>Registration</h3>
+        <p>Start by registering your profile for the academic session.</p>
+        <span class="step-no">01</span>
+      </div>
+    </div>
+
+    <div class="timeline-step orange" data-aos="fade-left">
+      <div class="icon"><i class="fas fa-file-alt"></i></div>
+      <div class="content">
+        <h3>Application For Admission</h3>
+        <p>Fill out your application form with the required details.</p>
+        <span class="step-no">02</span>
+      </div>
+    </div>
+
+    <div class="timeline-step red" data-aos="fade-right">
+      <div class="icon"><i class="fas fa-upload"></i></div>
+      <div class="content">
+        <h3>Upload Documents</h3>
+        <p>Submit scanned copies of your academic documents online.</p>
+        <span class="step-no">03</span>
+      </div>
+    </div>
+
+    <div class="timeline-step teal" data-aos="fade-left">
+      <div class="icon"><i class="fas fa-list-check"></i></div>
+      <div class="content">
+        <h3>Status Checking in Merit List</h3>
+        <p>Track your name in the published merit list online.</p>
+        <span class="step-no">04</span>
+      </div>
+    </div>
+
+    <div class="timeline-step green" data-aos="fade-right">
+      <div class="icon"><i class="fas fa-credit-card"></i></div>
+      <div class="content">
+        <h3>Online Payment</h3>
+        <p>Complete the admission process by paying online fees.</p>
+        <span class="step-no">05</span>
+      </div>
+    </div>
+
+  </div>-->
+</section>
+   <section id="hse" class="safety-section" data-aos="fade-up">
+  <div class="container">
+    <h1 style="text-align:center; background: #fff; color:green;"> Safety&Security</h1>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <img src="https://img.icons8.com/3d-fluency/48/security-checked.png" alt="lock icon">
+          Secure Campus
+          <span class="arrow"></span>
+        </button>
+        <div class="accordion-content">
+          <p>24/7 CCTV surveillance and biometric access ensure a fully secure learning environment.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <img src="https://img.icons8.com/3d-fluency/48/lock-2.png" alt="security icon">
+          Trained Security Staff
+          <span class="arrow"></span>
+        </button>
+        <div class="accordion-content">
+          <p>Professionally trained guards are stationed at every gate and building with regular patrolling.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <img src="https://img.icons8.com/3d-fluency/48/fire-extinguisher.png" alt="fire icon">
+          Fire Safety
+          <span class="arrow"></span>
+        </button>
+        <div class="accordion-content">
+          <p>Fire alarms, extinguishers, and emergency exits are installed throughout the campus with regular drills.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <img src="https://img.icons8.com/3d-fluency/48/health-checkup.png" alt="medical">
+          Medical Facility
+          <span class="arrow"></span>
+        </button>
+        <div class="accordion-content">
+          <p>Our medical room has a full-time nurse and first aid kits in every block for emergency care.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+<section class="reviews-section">
+  <h2 class="section-title" data-aos="fade-up">What People Say About Us</h2>
+
+  <!-- First Carousel Row -->
+  <div class="carousel" data-aos="fade-up" data-aos-delay="100">
+    <div class="carousel-track">
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://i.pravatar.cc/100?img=12" class="user-img" />
+          <div>
+            <h3>Riya Sharma</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+        <p>"This school has transformed my child’s learning experience. The staff is amazing!"</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://i.pravatar.cc/100?img=25" class="user-img" />
+          <div>
+            <h3>Rahul Mehta</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"Fantastic facilities and great teachers. Highly recommend this institution."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://i.pravatar.cc/100?img=7" class="user-img" />
+          <div>
+            <h3>Neha Kapoor</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"We’re very satisfied with the academic progress and extra activities."</p>
+      </div>
+
+      <!-- Duplicated for smooth scroll -->
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://i.pravatar.cc/100?img=12" class="user-img" />
+          <div>
+            <h3>Riya Sharma</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+        <p>"This school has transformed my child’s learning experience. The staff is amazing!"</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://i.pravatar.cc/100?img=25" class="user-img" />
+          <div>
+            <h3>Rahul Mehta</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"Fantastic facilities and great teachers. Highly recommend this institution."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Carousel Row (slower) -->
+  <div class="carousel slow" data-aos="fade-up" data-aos-delay="200">
+    <div class="carousel-track">
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://i.pravatar.cc/100?img=30" class="user-img" />
+          <div>
+            <h3>Aman Verma</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"The school focuses on all-round development. I'm impressed by the activities!"</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://i.pravatar.cc/100?img=35" class="user-img" />
+          <div>
+            <h3>Kavita Joshi</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"My daughter loves going to school now. Very caring environment."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="rishav.jpg" class="user-img" />
+          <div>
+            <h3>Sachin Rawat</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"The teachers are helpful, and the campus is very clean and organized."</p>
+      </div>
+
+      <!-- Duplicated for seamless scroll -->
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://i.pravatar.cc/100?img=30" class="user-img" />
+          <div>
+            <h3>Aman Verma</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"The school focuses on all-round development. I'm impressed by the activities!"</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="https://i.pravatar.cc/100?img=35" class="user-img" />
+          <div>
+            <h3>Kavita Joshi</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"My daughter loves going to school now. Very caring environment."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="contact-card">
+    <h2>Get in Touch</h2>
+    <p>We’d love to hear from you. Send us a message and we’ll respond shortly.</p>
+
+    <form id="contactForm">
+      <div class="input-group">
+        <input type="text" name="name" required />
+        <label>Your Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="email" name="email" required />
+        <label>Your Email</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" name="subject" required />
+        <label>Subject</label>
+      </div>
+
+      <div class="input-group">
+        <textarea name="message" rows="4" required></textarea>
+        <label>Your Message</label>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+    <div id="successMessage" class="success-msg" style="display: none;">
+      ✅ Your message has been sent successfully!
+    </div>
+  </div>
+  <!-- Additional Row with 2 Cards and 3D Icons -->
+<div class="stats-wide-row">
+  <div class="stat-card wide" data-aos="fade-right">
+    <span class="badge">📌 Featured</span>
+    <div class="icon">
+      <img src="https://img.icons8.com/3d-fluency/64/classroom.png" alt="Smart Classrooms" />
+    </div>
+    <h2>Smart Classrooms</h2>
+    <p>Interactive Boards, Audio Visual Tools</p>
+  </div>
+
+  <div class="stat-card wide" data-aos="fade-left">
+    <span class="badge">🔥 Popular</span>
+    <div class="icon">
+      <img src="https://img.icons8.com/3d-fluency/64/medal.png" alt="Achievements" />
+    </div>
+    <h2>120+</h2>
+    <p>Student Awards & Competitions</p>
+  </div>
+</div>
+</section>
+
+<section class="feedback-section-uni57" data-aos="fade-up">
+  <div class="feedback-form-box-uni57">
+    <h2>Feedback Form</h2>
+    <form class="feedback-form-uni57" method="post" action="https://formspree.io/f/xpwlzvvn">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Feedback" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER SECTION START -->
+<footer class="footer">
+  <div class="phone-notch"></div> <!-- iPhone-like button -->
+
+  <h2>Let’s connect!</h2>
+  <p>Employers & Recruiters stay up to date with the latest product updates & announcements.</p>
+
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <input type="email" name="email" placeholder="type your e-mail here..." required />
+    <button type="submit">Join</button>
+  </form>
+
+  <div class="social-icons">
+    <!-- Chat with Us Button -->
+<a href="chat.html" style="
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #6366f1, #9333ea);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+"
+onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 25px rgba(0,0,0,0.3)';"
+onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.2)';">
+  <i class="fas fa-comments"></i> Chat with Us
+</a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <div class="footer-bottom">
+    Discoveree 2016 © All Right reserved
+    <span class="footer-designer">Designed by <strong>Agents</strong></span>
+  </div>
+</footer>
+<!-- FOOTER SECTION END -->
+<!-- FOOTER SECTION END -->
+<!-- AOS -->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<!-- CSS same as before, just add this extra class -->
+<!-- AOS CSS (should be in <head>) -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- AOS JS (before closing </body>) -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  
+</script>
+<script type="module" src="script.js"></script>
+<!-- Your main script file -->
+<script src="script.js"></script>
+</body>
+</html>

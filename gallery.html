@@ -1,0 +1,92 @@
+<! vh html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Gallery | Sharda Gyan Niketan</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #1a1a1a;
+      --radius: 20px;
+    }body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 60px 5% 100px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+.gallery-grid {
+  column-count: 1;
+  column-gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1000px) {
+  .gallery-grid {
+    column-count: 3;
+  }
+}
+
+.media-card {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-5px);
+}
+
+.media-card img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
+  </style>
+</head>
+<body>
+  <h1>Our Gallery</h1>
+  <div class="gallery-grid">
+    <!-- 100 Auto-Generated Photos with Unique AOS Animations --><!-- GENERATED IMAGE CARDS -->
+
+<!-- prettier-ignore-start -->
+
+<!-- Begin Images -->
+
+<!-- These are all random from Unsplash with different dimensions and animations -->
+
+
+<!-- Inserted with Python generation -->
+
+" + "
+
+".join([ f'<div class="media-card" data-aos="{random.choice(["fade-up", "fade-down", "fade-left", "fade-right", "fade-up-right", "fade-up-left", "flip-left", "flip-right", "flip-up", "flip-down", "zoom-in", "zoom-out", "zoom-in-up", "zoom-in-down", "zoom-in-left", "zoom-in-right", "zoom-out-up", "zoom-out-down", "zoom-out-left", "zoom-out-right"])}"> <a href="https://source.unsplash.com/random/800x{random.randint(500, 800)}?sig={i}" data-lightbox="gallery" data-title="Photo {i}"> <img src="https://source.unsplash.com/random/800x{random.randint(500, 800)}?sig={i}" alt="Photo {i}"> </a> </div>' for i in range(1, 101) ]) + "
+
+<!-- prettier-ignore-end -->
+
+  </div>  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+    });
+  </script></body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curriculum - Sharda Gyan Niketan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #222;
+    }
+
+    header {
+      background: #fff;
+      color: #000;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    header h1 {
+      font-size: 36px;
+      font-weight: 600;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .intro h2 {
+      font-size: 28px;
+      color: #111;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 8%;
+      gap: 60px;
+      flex-wrap: wrap;
+      border-top: 1px solid #eee;
+    }
+
+    .section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .text-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .text-content h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    .text-content p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .image-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .image-content img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .cbse {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f9f9f9;
+      border-top: 1px solid #eee;
+    }
+
+    .cbse h2 {
+      font-size: 22px;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .cbse p {
+      color: #666;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #f2f2f2;
+      color: #555;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      border-top: 1px solid #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column !important;
+        padding: 40px 20px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+    }
+    .navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .school-logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .school-name {
+    font-weight: 700;
+    color: #1e3a8a; /* navy blue shade */
+    font-size: 1rem;
+  }
+
+  .navbar-right a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-right a:hover {
+    color: #7e22ce; /* purple hover effect */
+  }
+
+  @media (max-width: 768px) {
+    .navbar-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .navbar-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .navbar-right a {
+      margin-left: 0;
+    }
+  }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<header class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-left">
+      <img src="logo.jpg" alt="School Logo" class="school-logo">
+      <span class="school-name">SHARDA GYAN NIKETAN</span>
+    </div>
+    <nav class="nav-bar-right">
+      <a href="index.html">Home</a>
+      <a href="index2.html">About Us</a>
+      <a href="#">News & Events</a>
+      <a href="contact.html">Contact Us</a>
+      
+    </nav>
+  </div>
+</header>
+  <header>
+    <h1>Our Curriculum</h1>
+  </header>
+
+  <section class="intro" data-aos="fade-up">
+    <h2>Inspiring Education, Shaping Futures</h2>
+    <p>At Sharda Gyan Niketan, our curriculum is thoughtfully aligned with the guidelines prescribed by the Central Board of Secondary Education (CBSE), New Delhi. We focus on building a strong academic foundation while encouraging critical thinking, creativity, values, and holistic development.</p>
+  </section>
+
+  <section class="section" data-aos="fade-right">
+    <div class="text-content">
+      <h3 style="color:#27548A";>Foundational Stage (Nursery - Grade 2)</h3>
+      <p>Play-based, activity-driven learning to develop communication, motor, emotional, and social skills in a joyful environment.</p>
+    </div>
+    <div class="image-content">
+      <img src="https://source.unsplash.com/600x400/?kids,classroom" alt="Foundational Stage">
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-left">
+    <div class="text-content">
+      <h3 style="color:#27548A;" >Preparatory Stage (Grade 3 - 5)</h3>
+      <p>Focus on language, numeracy, environmental studies, and creativity. Encouraging curiosity and foundational concepts.</p>
+    </div>
+    <div class="image-content">
+      <img src="https://source.unsplash.com/600x400/?students,learning" alt="Preparatory Stage">
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-right">
+    <div class="text-content">
+      <h3 style="color:#27548A";>Middle Stage (Grade 6 - 8)</h3>
+      <p>Emphasis on critical thinking, subject depth, project work, and foundational coding and science experiments.</p>
+    </div>
+    <div class="image-content">
+      <img src="https://source.unsplash.com/600x400/?science,laboratory" alt="Middle Stage">
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-left">
+    <div class="text-content">
+      <h3 style="color:#27548A";>Secondary Stage (Grade 9 - 12)</h3>
+      <p>Disciplined subject learning, career exposure, practicals, mentorship, and preparation for competitive exams and board success.</p>
+    </div>
+    <div class="image-content">
+      <img src="https://source.unsplash.com/600x400/?education,exam" alt="Secondary Stage">
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-right">
+    <div class="text-content">
+      <h3 style="color:#27548A";> Co-curricular Integration</h3>
+      <p>Music, arts, sports, yoga, dance, and club activities are embedded across stages to ensure physical, emotional, and creative growth.</p>
+    </div>
+    <div class="image-content">
+      <img src="https://source.unsplash.com/600x400/?sports,art" alt="Co-curricular Activities">
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-left">
+    <div class="text-content">
+      <h3style="color:#27548A";>Skill-Based Learning</h3>
+      <p>Financial literacy, entrepreneurship, digital tools, leadership training and environmental awareness woven into academics.</p>
+    </div>
+    <div class="image-content">
+      <img src="https://source.unsplash.com/600x400/?technology,learning" alt="Skill Based Learning">
+    </div>
+  </section>
+
+  <section class="cbse" data-aos="fade-up">
+    <h3 >📘 Our school is proudly affiliated with CBSE, New Delhi.</h3>
+    <p>We follow all CBSE norms and NEP 2020 curriculum recommendations to deliver quality education.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Sharda Gyan Niketan | All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+  </script>
+
+</body>
+</html>
